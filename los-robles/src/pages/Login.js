@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { auth } from "../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { auth, db } from "../firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,25 +13,37 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // 🔹 Buscar usuario en Firestore
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (userSnap.exists()) {
+        const userData = userSnap.data();
+        if (userData.isAdmin) {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/user-dashboard");
+        }
+      } else {
+        setError("⚠️ Usuario no encontrado en la base de datos.");
+      }
     } catch (err) {
-      setError("Correo o contraseña incorrectos.");
+      setError("Error al iniciar sesión: " + err.message);
     }
   };
 
   return (
-    <div className="container">
+    <div>
       <h2>Iniciar sesión</h2>
-      {error && <p className="error">{error}</p>}
       <form onSubmit={handleLogin}>
-        <input type="email" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit">Ingresar</button>
       </form>
-
-      <p>¿Si No tienes cuenta? <Link to="/register">Regístrate aquí</Link></p>
-      <p>¿Olvidaste tu contraseña? <Link to="/reset-password">Recupérala aquí</Link></p>
+      {error && <p>{error}</p>}
     </div>
   );
 };

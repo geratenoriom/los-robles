@@ -1,35 +1,49 @@
 import React, { useState } from "react";
-import { auth } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebaseConfig";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const [success, setSuccess] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard"); // Redirige después del registro
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // 🔹 Guardar datos en Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        isAdmin: false, // Por defecto, usuario normal
+        rol: "usuario"
+      });
+
+      setSuccess("Usuario registrado exitosamente.");
+      setEmail("");
+      setPassword("");
     } catch (err) {
-      setError("Error al registrarse. Intenta nuevamente.");
+      setError("Error al registrar: " + err.message);
     }
   };
 
   return (
-    <div className="container">
-      <h2>Registro</h2>
-      {error && <p className="error">{error}</p>}
+    <div>
+      <h2>Registro de Usuario</h2>
       <form onSubmit={handleRegister}>
-        <input type="email" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Registrarse</button>
+        <button type="submit">Registrar</button>
       </form>
+      {error && <p>{error}</p>}
+      {success && <p>{success}</p>}
     </div>
   );
 };
 
 export default Register;
+
+
