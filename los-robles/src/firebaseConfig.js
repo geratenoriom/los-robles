@@ -3,12 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCy4EEsLtynTgBL56O-cvPz-_2UBfhpNKE",
-  authDomain: "los-robles-2a5f5.firebaseapp.com",
-  projectId: "los-robles-2a5f5",
-  storageBucket: "los-robles-2a5f5.firebasestorage.app",
-  messagingSenderId: "457573383298",
-  appId: "1:457573383298:web:a3854aadacde0096cd089b"
+  apiKey: "AIzaSyAHpre_oKIWy2oJXZzEkTHfWE2EYuYXRR4",
+  authDomain: "los-robles-de450.firebaseapp.com",
+  databaseURL: "https://los-robles-de450-default-rtdb.firebaseio.com",
+  projectId: "los-robles-de450",
+  storageBucket: "los-robles-de450.firebasestorage.app",
+  messagingSenderId: "945360971660",
+  appId: "1:945360971660:web:9a43e5e8f7b4454d2e58a9"
 };
 
 // Inicialización de Firebase

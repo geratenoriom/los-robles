@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      const user = userCredential.ususario;
 
       // 🔹 Buscar usuario en Firestore
       const userRef = doc(db, "users", user.uid);
