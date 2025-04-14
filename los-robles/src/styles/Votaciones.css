@@ -1,0 +1,77 @@
+.votaciones-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .votaciones-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .votaciones-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  
+  .votaciones-button {
+    width: 100%;
+    padding: 12px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .votaciones-button:hover {
+    background-color: blueviolet;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .back-button,
+  .logout-button {
+    padding: 10px 18px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .back-button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .back-button:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .logout-button {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .logout-button:hover {
+    background-color: #c0392b;
+  }
+  

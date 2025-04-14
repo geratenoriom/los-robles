@@ -1,0 +1,48 @@
+/* Pagos.css */
+
+.pagos-container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pagos-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .pagos-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .pagos-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  .pagos-button {
+    padding: 12px 20px;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagos-button:hover {
+    background-color: blueviolet;
+  }
+  

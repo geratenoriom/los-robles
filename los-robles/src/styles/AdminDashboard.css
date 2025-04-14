@@ -1,0 +1,62 @@
+/* AdminDashboard.css */
+
+.admin-dashboard-container {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-dashboard-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .admin-dashboard-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .admin-input {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .admin-button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-button:hover {
+    background-color: #45a049;
+  }
+  
+  .admin-dashboard-actions {
+    margin-top: 20px;
+  }
+  
+  .admin-logout-button {
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-logout-button:hover {
+    background-color: #e53935;
+  }
+  

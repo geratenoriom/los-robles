@@ -1,0 +1,56 @@
+/* UserDashboard.css */
+
+.user-dashboard-container {
+    width: 350px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-dashboard-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .user-dashboard-menu {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .user-dashboard-button {
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .user-dashboard-button:hover {
+    background-color: #45a049;
+  }
+  
+  .user-dashboard-logout-button {
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .user-dashboard-logout-button:hover {
+    background-color: #e53935;
+  }
+  
