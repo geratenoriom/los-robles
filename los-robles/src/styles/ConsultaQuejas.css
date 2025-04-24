@@ -1,0 +1,63 @@
+.consulta-quejas-container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  }
+  
+  .consulta-quejas-title {
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .consulta-quejas-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .consulta-quejas-table th, .consulta-quejas-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .consulta-quejas-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .consulta-quejas-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .consulta-quejas-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .consulta-quejas-table td {
+    color: #555;
+  }
+  
+  .consulta-quejas-table .fecha {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .consulta-quejas-container p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .consulta-quejas-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+  }
+  

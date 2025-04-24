@@ -1,62 +1,93 @@
-import React, { useState } from "react";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db } from "../firebase/config";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase/config";
-import '../styles/Votaciones.css';
+import { db } from "../firebase/config";
+import { collection, getDocs, addDoc } from "firebase/firestore";
+import "../styles/Votaciones.css";
 
-const Votaciones = () => {
-  const [opcion, setOpcion] = useState("");
+function Votaciones() {
+  const [votaciones, setVotaciones] = useState([]);
+  const [respuestas, setRespuestas] = useState({});
   const navigate = useNavigate();
 
-  const registrarVoto = async () => {
-    if (!opcion) {
-      alert("Selecciona una opción.");
+  const cargarVotaciones = async () => {
+    const snapshot = await getDocs(collection(db, "votaciones"));
+    const ahora = new Date();
+    const data = snapshot.docs
+      .map(doc => ({ id: doc.id, ...doc.data() }))
+      .filter(v => v.tiempoLimite && v.tiempoLimite.toDate && v.tiempoLimite.toDate() > ahora);
+    setVotaciones(data);
+  };
+
+  useEffect(() => {
+    cargarVotaciones();
+  }, []);
+
+  const enviarRespuesta = async (idVotacion) => {
+    const respuesta = respuestas[idVotacion];
+    if (!respuesta) {
+      alert("Selecciona una opción");
       return;
     }
 
     try {
-      await addDoc(collection(db, "votaciones"), {
-        opcion,
-        fecha: Timestamp.now(),
-        usuario: localStorage.getItem("uid")
+      await addDoc(collection(db, "respuestasVotacion"), {
+        idVotacion,
+        respuesta,
+        fecha: new Date(),
       });
-      alert("Voto registrado");
-      setOpcion("");
-    } catch (err) {
-      alert("Error al votar: " + err.message);
+      alert("Respuesta enviada");
+    } catch (error) {
+      console.error("Error al enviar respuesta: ", error);
     }
   };
 
-  const handleLogout = async () => {
-    await signOut(auth);
+  const handleLogout = () => {
     localStorage.clear();
     navigate("/");
   };
 
-  const handleGoBack = () => {
-    navigate(-1);
+  const handleVolver = () => {
+    navigate("/userDashboard");
   };
 
   return (
     <div className="votaciones-container">
-      <h3 className="votaciones-title">Votación</h3>
-      <input
-        className="votaciones-input"
-        type="text"
-        value={opcion}
-        onChange={(e) => setOpcion(e.target.value)}
-        placeholder="Ingresa tu opción"
-      />
-      <button className="votaciones-button" onClick={registrarVoto}>Votar</button>
+      <h3 className="votaciones-title">Votaciones Activas</h3>
 
-      <div className="action-buttons">
-        <button className="back-button" onClick={handleGoBack}>Regresar</button>
-        <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
+      {votaciones.length === 0 ? (
+        <p className="votaciones-mensaje">No hay votaciones activas</p>
+      ) : (
+        votaciones.map(v => (
+          <div className="votacion-box" key={v.id}>
+            <h4 className="votacion-pregunta">{v.pregunta}</h4>
+            {v.opciones.map((op, idx) => (
+              <div className="votacion-opcion" key={idx}>
+                <input
+                  type="radio"
+                  name={`votacion-${v.id}`}
+                  value={op}
+                  onChange={() => setRespuestas({ ...respuestas, [v.id]: op })}
+                />
+                {op}
+              </div>
+            ))}
+            <button className="votacion-button" onClick={() => enviarRespuesta(v.id)}>
+              Enviar respuesta
+            </button>
+          </div>
+        ))
+      )}
+
+      <div className="votaciones-actions">
+        <button className="admin-secondary-button1" onClick={handleVolver}>
+          Regresar
+        </button>
+        <button className="admin-logout-button" onClick={handleLogout}>
+          Cerrar Sesión
+        </button>
       </div>
     </div>
   );
-};
+}
 
 export default Votaciones;

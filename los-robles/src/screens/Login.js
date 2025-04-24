@@ -44,6 +44,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
+    <h1 className="titulo">Residencial los Robles</h1>
       <h2 className="login-title">Iniciar Sesión</h2>
       <input
         type="email"

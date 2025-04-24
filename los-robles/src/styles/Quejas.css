@@ -1,79 +1,100 @@
+/* Quejas.css */
+
 .quejas-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  .quejas-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  .quejas-textarea {
-    width: 100%;
-    height: 120px;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    resize: vertical;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-  }
-  
-  .quejas-button {
-    width: 100%;
-    padding: 12px;
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .quejas-button:hover {
-    background-color: blueviolet;
-  }
-  
-  .action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-  }
-  
-  .back-button,
-  .logout-button {
-    padding: 10px 18px;
-    font-size: 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .back-button {
-    background-color: #f0f0f0;
-    color: #333;
-  }
-  
-  .back-button:hover {
-    background-color: #dcdcdc;
-  }
-  
-  .logout-button {
-    background-color: blue;
-    color: white;
-  }
-  
-  .logout-button:hover {
-    background-color: #c0392b;
-  }
-  
+  width: 50%;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quejas-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: rgb(5, 216, 158);
+  text-shadow:
+    -1px -1px 0 #000,  /* Sombra negra */
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0px 0px 10px #FF0000, /* Rojo */
+    0px 0px 20px #0000FF, /* Azul */
+    0px 0px 30px #00FF00; /* Verde */
+}
+
+.quejas-textarea {
+  width: 95%;
+  height: 150px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.quejas-button {
+  padding: 10px;
+  background-color: rgb(122, 207, 168);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quejas-button:hover {
+  background-color: rgb(50, 151, 105);
+}
+
+.previsualizacion {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  text-align: left;
+}
+
+.previsualizacion h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: rgb(5, 216, 158);
+}
+
+.previsualizacion p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+.confirmar-button {
+  padding: 10px;
+  background-color: rgb(122, 207, 168);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.confirmar-button:hover {
+  background-color: rgb(50, 151, 105);
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.back-button, .logout-button {
+  padding: 10px;
+  background-color: rgb(163, 65, 64);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.back-button:hover, .logout-button:hover {
+  background-color: rgb(231, 114, 112);
+}

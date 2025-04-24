@@ -1,0 +1,83 @@
+/* CrearConsultarVotaciones.css */
+.votaciones-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .votaciones-container h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .votaciones-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .votaciones-container input::placeholder {
+    color: #888;
+  }
+  
+  .votaciones-container button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .votaciones-container button:hover {
+    background-color: #45a049;
+  }
+  
+  .votaciones-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .votaciones-container ul li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .votaciones-container ul li strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .votaciones-container ul li::before {
+    content: "\2022";
+    font-size: 2rem;
+    color: #4caf50;
+    margin-right: 10px;
+  }
+  
+  .votaciones-container input[type="datetime-local"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .votaciones-container input[type="datetime-local"]::placeholder {
+    color: #888;
+  }
+  

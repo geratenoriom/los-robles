@@ -18,7 +18,7 @@ const UserDashboard = () => {
       <h2 className="user-dashboard-title">Panel de Usuario</h2>
 
       <ul className="user-dashboard-menu">
-        <li><button className="user-dashboard-button" onClick={() => navigate("/reportes")}>Reportes</button></li>
+        <li><button className="user-dashboard-button" onClick={() => navigate("/reportes")}>Reporte</button></li>
         <li><button className="user-dashboard-button" onClick={() => navigate("/quejas")}>Quejas</button></li>
         <li><button className="user-dashboard-button" onClick={() => navigate("/pagos")}>Pagos</button></li>
         <li><button className="user-dashboard-button" onClick={() => navigate("/encuestas")}>Encuestas</button></li>

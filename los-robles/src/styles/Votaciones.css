@@ -1,77 +1,96 @@
 .votaciones-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  .votaciones-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  .votaciones-input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
-  
-  .votaciones-button {
-    width: 100%;
-    padding: 12px;
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .votaciones-button:hover {
-    background-color: blueviolet;
-  }
-  
-  .action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-  }
-  
-  .back-button,
-  .logout-button {
-    padding: 10px 18px;
-    font-size: 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .back-button {
-    background-color: #f0f0f0;
-    color: #333;
-  }
-  
-  .back-button:hover {
-    background-color: #dcdcdc;
-  }
-  
-  .logout-button {
-    background-color: #e74c3c;
-    color: white;
-  }
-  
-  .logout-button:hover {
-    background-color: #c0392b;
-  }
-  
+  width: 50%;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.votaciones-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: rgb(5, 216, 158);
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0px 0px 10px #FF0000,
+    0px 0px 20px #0000FF,
+    0px 0px 30px #00FF00;
+}
+
+.votacion-box {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: left;
+}
+
+.votacion-pregunta {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.votacion-opcion {
+  margin: 8px 0;
+}
+
+.votacion-button {
+  padding: 10px;
+  background-color: rgb(122, 207, 168);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.votacion-button:hover {
+  background-color: rgb(50, 151, 105);
+}
+
+.votaciones-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.admin-secondary-button1 {
+  padding: 10px;
+  background-color: rgb(122, 207, 168);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-secondary-button1:hover {
+  background-color: rgb(50, 151, 105);
+}
+
+.admin-logout-button {
+  padding: 10px;
+  background-color: rgb(163, 65, 64);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-logout-button:hover {
+  background-color: rgb(231, 114, 112);
+}
+
+.votaciones-mensaje {
+  color: #444;
+  font-style: italic;
+  margin-top: 15px;
+}

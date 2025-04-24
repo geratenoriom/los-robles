@@ -3,21 +3,31 @@
 .pagos-container {
     width: 100%;
     max-width: 500px;
-    margin: auto;
+    margin: 80px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
   }
   
   .pagos-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+  font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: rgb(5, 216, 158);
     text-align: center;
+    text-shadow:
+    -1px -1px 0 #000,  /* Sombra negra */
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0px 0px 10px #FF0000, /* Rojo */
+    0px 0px 20px #0000FF, /* Azul */
+    0px 0px 30px #00FF00; /* Verde */
   }
   
   .pagos-input {
-    width: 100%;
+    width: 95%;
     padding: 12px;
     font-size: 16px;
     margin-bottom: 20px;
@@ -33,7 +43,7 @@
   .pagos-button {
     padding: 12px 20px;
     width: 100%;
-    background-color: blue;
+    background-color: rgb(122, 207, 168);
     color: white;
     border: none;
     border-radius: 4px;
@@ -43,6 +53,14 @@
   }
   
   .pagos-button:hover {
-    background-color: blueviolet;
+    background-color: rgb(50, 151, 105);
   }
   
+  .logout-button {
+    background-color: rgb(163, 65, 64);
+    color: white;
+  }
+  
+  .logout-button:hover {
+    background-color: rgb(231, 114, 112);
+  }

@@ -1,0 +1,88 @@
+/* Estilo para la tabla en ReportesGenerados */
+.reportes-generados-container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  
+  .reportes-generados-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .reportes-generados-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .reportes-generados-table th, .reportes-generados-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+  }
+  
+  .reportes-generados-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .reportes-generados-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .reportes-generados-table tr:hover {
+    background-color: #e2f7f1;
+  }
+  
+  .reportes-generados-table td {
+    color: #555;
+  }
+  
+  /* Estilo de los botones de acción */
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .back-button, .logout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(122, 207, 168);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .back-button:hover, .logout-button:hover {
+    background-color: rgb(50, 151, 105);
+  }
+  
+  /* Estilos adicionales para mejorar la apariencia */
+  .reportes-generados-container .back-button {
+    background-color: rgb(122, 207, 168);
+  }
+  
+  .reportes-generados-container .logout-button {
+    background-color: rgb(163, 65, 64);
+  }
+  
+  .reportes-generados-container .back-button:hover {
+    background-color: rgb(50, 151, 105);
+  }
+  
+  .reportes-generados-container .logout-button:hover {
+    background-color: rgb(231, 114, 112);
+  }
+  

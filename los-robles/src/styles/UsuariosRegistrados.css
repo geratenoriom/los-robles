@@ -1,0 +1,82 @@
+/* UsuariosRegistrados.css */
+
+.admin-dashboard-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  
+  .admin-dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: rgb(5, 216, 158);
+    text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000,
+       0px  0px 10px #FF0000,
+       0px  0px 20px #0000FF,
+       0px  0px 30px #00FF00;
+  }
+  
+  /* Tabla de usuarios */
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .admin-table th {
+    background-color: #5ecaa7;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .admin-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Botones */
+  .admin-button {
+    padding: 8px 12px;
+    background-color: #a83b3b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-button:hover {
+    background-color: #e45d5d;
+  }
+  
+  .admin-secondary-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: rgb(122, 207, 168);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-secondary-button:hover {
+    background-color: rgb(50, 151, 105);
+  }
+  

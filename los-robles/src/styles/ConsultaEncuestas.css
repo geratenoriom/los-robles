@@ -1,6 +1,6 @@
-/* AdminDashboard.css */
+/* ConsultaEncuestas.css */
 
-.admin-dashboard-container1 {
+.consulta-encuestas-container {
     width: 50%;
     margin: 20px auto;
     padding: 20px;
@@ -10,28 +10,28 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
   }
   
-  .admin-dashboard-title {
+  .consulta-encuestas-title {
     font-size: 2rem;
-  font-weight: bold;
+    font-weight: bold;
     margin-bottom: 1.5rem;
     color: rgb(5, 216, 158);
     text-shadow:
-    -1px -1px 0 #000,  /* Sombra negra */
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000,
-    0px 0px 10px #FF0000, /* Rojo */
-    0px 0px 20px #0000FF, /* Azul */
-    0px 0px 30px #00FF00; /* Verde */
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000,
+      0px 0px 10px #FF0000,
+      0px 0px 20px #0000FF,
+      0px 0px 30px #00FF00;
   }
   
-  .admin-dashboard-form {
+  .consulta-encuestas-form {
     display: flex;
     flex-direction: column;
     margin-bottom: 0px;
   }
   
-  .admin-input {
+  .consulta-encuestas-input {
     padding: 10px;
     margin: 10px 0;
     border-radius: 4px;
@@ -39,24 +39,25 @@
     width: 95%;
   }
   
-  .admin-button {
+  .consulta-encuestas-button {
     padding: 10px;
     background-color: rgb(122, 207, 168);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 10px;
   }
   
-  .admin-button:hover {
+  .consulta-encuestas-button:hover {
     background-color: rgb(50, 151, 105);
   }
   
-  .admin-dashboard-actions {
+  .consulta-encuestas-actions {
     margin-top: 20px;
   }
   
-  .admin-logout-button {
+  .consulta-encuestas-logout-button {
     padding: 10px;
     background-color: rgb(163, 65, 64);
     color: white;
@@ -65,11 +66,11 @@
     cursor: pointer;
   }
   
-  .admin-logout-button:hover {
+  .consulta-encuestas-logout-button:hover {
     background-color: rgb(231, 114, 112);
   }
   
-  .admin-secondary-button1 {
+  .consulta-encuestas-secondary-button {
     padding: 10px;
     background-color: rgb(122, 207, 168);
     color: white;
@@ -78,11 +79,9 @@
     cursor: pointer;
     margin-bottom: 10px;
     margin-right: 10%;
-    
   }
   
-  .admin-secondary-button:hover {
+  .consulta-encuestas-secondary-button:hover {
     background-color: rgb(50, 151, 105);
   }
-
   

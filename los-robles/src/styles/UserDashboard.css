@@ -2,18 +2,27 @@
 
 .user-dashboard-container {
     width: 350px;
-    margin: auto;
+    margin: 80px auto;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
   }
   
   .user-dashboard-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
     text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: rgb(5, 216, 158);
+      text-shadow:
+      -1px -1px 0 #000,  /* Sombra negra */
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000,
+      0px 0px 10px #FF0000, /* Rojo */
+      0px 0px 20px #0000FF, /* Azul */
+      0px 0px 30px #00FF00; /* Verde */
   }
   
   .user-dashboard-menu {
@@ -26,7 +35,7 @@
     padding: 10px;
     margin: 8px 0;
     width: 100%;
-    background-color: #4CAF50;
+    background-color: rgb(122, 207, 168);
     color: white;
     border: none;
     border-radius: 4px;
@@ -35,12 +44,12 @@
   }
   
   .user-dashboard-button:hover {
-    background-color: #45a049;
+    background-color: rgb(50, 151, 105);
   }
   
   .user-dashboard-logout-button {
     padding: 10px;
-    background-color: #f44336;
+    background-color: rgb(163, 65, 64);
     color: white;
     border: none;
     border-radius: 4px;
@@ -51,6 +60,16 @@
   }
   
   .user-dashboard-logout-button:hover {
-    background-color: #e53935;
+    background-color: rgb(231, 114, 112);
+  }
+  
+  .admin-select {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 99%;
+    margin: 8px 0px;
   }
   
