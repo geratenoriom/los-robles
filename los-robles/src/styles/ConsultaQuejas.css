@@ -1,63 +1,98 @@
-.consulta-quejas-container {
-    width: 80%;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-  }
-  
-  .consulta-quejas-title {
-    font-size: 26px;
-    text-align: center;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .consulta-quejas-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .consulta-quejas-table th, .consulta-quejas-table td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: left;
-  }
-  
-  .consulta-quejas-table th {
-    background-color: #f2f2f2;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .consulta-quejas-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .consulta-quejas-table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .consulta-quejas-table td {
-    color: #555;
-  }
-  
-  .consulta-quejas-table .fecha {
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .consulta-quejas-container p {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .consulta-quejas-footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-  }
-  
+/* ConsultaQuejas.css */
+
+.consulta-quejas {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.consulta-quejas h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.consulta-quejas textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+.consulta-quejas textarea::placeholder {
+  color: #888;
+}
+
+.consulta-quejas button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.consulta-quejas button:hover {
+  background-color: #45a049;
+}
+
+.consulta-quejas .usuario-resumen {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.consulta-quejas .usuario-resumen p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.consulta-quejas .usuario-resumen strong {
+  color: #4caf50;
+}
+
+.consulta-quejas .action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.consulta-quejas .action-buttons button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.consulta-quejas .back-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.consulta-quejas .logout-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.consulta-quejas .back-button:hover {
+  background-color: #45a049;
+}
+
+.consulta-quejas .logout-button:hover {
+  background-color: #d32f2f;
+}

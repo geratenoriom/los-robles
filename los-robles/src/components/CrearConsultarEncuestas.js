@@ -1,71 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";
 import { db, auth } from "../firebase/config";
 import { collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
 import { signOut } from "firebase/auth";
-import "../styles/CrearConsultarVotaciones.css";
+import "../styles/CrearConsultarEncuestas.css";
 
-const CrearConsultarVotaciones = () => {
+const CrearConsultarEncuestas = () => {
   const [pregunta, setPregunta] = useState("");
   const [opciones, setOpciones] = useState(["", "", ""]);
-  const [tiempoLimite, setTiempoLimite] = useState("");
-  const [votaciones, setVotaciones] = useState([]);
+  const [encuestas, setEncuestas] = useState([]);
   const [respuestas, setRespuestas] = useState({});
   const navigate = useNavigate();
 
+  // Cargar las encuestas y las respuestas al montar el componente
   useEffect(() => {
     const obtenerDatos = async () => {
-      await obtenerVotaciones();
+      await obtenerEncuestas();
       await obtenerRespuestas();
     };
     obtenerDatos();
   }, []);
 
-  const obtenerVotaciones = async () => {
-    const querySnapshot = await getDocs(collection(db, "votaciones"));
+  const obtenerEncuestas = async () => {
+    const querySnapshot = await getDocs(collection(db, "encuestas"));
     const data = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
-    setVotaciones(data);
+    setEncuestas(data);
   };
 
   const obtenerRespuestas = async () => {
-    const snapshot = await getDocs(collection(db, "respuestasVotacion"));
+    const snapshot = await getDocs(collection(db, "respuestasEncuesta"));
     const data = snapshot.docs.map(doc => doc.data());
 
     const conteo = {};
-    data.forEach(({ idVotacion, respuesta }) => {
-      if (!conteo[idVotacion]) conteo[idVotacion] = {};
-      if (!conteo[idVotacion][respuesta]) conteo[idVotacion][respuesta] = 0;
-      conteo[idVotacion][respuesta]++;
+    data.forEach(({ idEncuesta, respuesta }) => {
+      if (!conteo[idEncuesta]) conteo[idEncuesta] = {};
+      if (!conteo[idEncuesta][respuesta]) conteo[idEncuesta][respuesta] = 0;
+      conteo[idEncuesta][respuesta]++; 
     });
 
     setRespuestas(conteo);
   };
 
-  const crearVotacion = async () => {
-    if (!pregunta || opciones.some(op => !op) || !tiempoLimite) {
+  const crearEncuesta = async () => {
+    if (!pregunta || opciones.some(op => !op)) {
       alert("Completa todos los campos");
       return;
     }
 
-    const nuevaVotacion = {
+    const nuevaEncuesta = {
       pregunta,
       opciones,
-      tiempoLimite: Timestamp.fromDate(new Date(tiempoLimite)),
-      creadaEn: Timestamp.now(),
+      fechaCreacion: Timestamp.now(),
     };
 
     try {
-      await addDoc(collection(db, "votaciones"), nuevaVotacion);
-      alert("Votación creada con éxito");
+      await addDoc(collection(db, "encuestas"), nuevaEncuesta);
+      alert("Encuesta creada con éxito");
       setPregunta("");
       setOpciones(["", "", ""]);
-      setTiempoLimite("");
-      await obtenerVotaciones();
+      await obtenerEncuestas();
     } catch (error) {
-      alert("Error al crear la votación: " + error.message);
+      alert("Error al crear la encuesta: " + error.message);
     }
   };
 
@@ -76,8 +74,8 @@ const CrearConsultarVotaciones = () => {
   };
 
   return (
-    <div className="votaciones-container">
-      <h3>Crear Votación</h3>
+    <div className="encuestas-container">
+      <h3>Crear Encuesta</h3>
       <input type="text" placeholder="Pregunta" value={pregunta} onChange={(e) => setPregunta(e.target.value)} />
       {opciones.map((op, index) => (
         <input key={index} type="text" placeholder={`Opción ${index + 1}`} value={op}
@@ -87,19 +85,17 @@ const CrearConsultarVotaciones = () => {
             setOpciones(nuevasOpciones);
           }} />
       ))}
-      <input type="datetime-local" value={tiempoLimite} onChange={(e) => setTiempoLimite(e.target.value)} />
-      <button onClick={crearVotacion}>Crear Votación</button>
+      <button onClick={crearEncuesta}>Crear Encuesta</button>
 
-      <h3>Votaciones Creadas</h3>
+      <h3>Encuestas Creadas</h3>
       <ul>
-        {votaciones.map((v) => (
-          <li key={v.id}>
-            <strong>{v.pregunta}</strong> - Hasta:{" "}
-            {new Date(v.tiempoLimite?.seconds * 1000).toLocaleString()}
+        {encuestas.map((e) => (
+          <li key={e.id}>
+            <strong>{e.pregunta}</strong>
             <ul>
-              {v.opciones.map((op, idx) => (
+              {e.opciones.map((op, idx) => (
                 <li key={idx}>
-                  {op}: {respuestas[v.id]?.[op] || 0} votos
+                  {op}: {respuestas[e.id]?.[op] || 0} respuestas
                 </li>
               ))}
             </ul>
@@ -115,4 +111,4 @@ const CrearConsultarVotaciones = () => {
   );
 };
 
-export default CrearConsultarVotaciones;
+export default CrearConsultarEncuestas;

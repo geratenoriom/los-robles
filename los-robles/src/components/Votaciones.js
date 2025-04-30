@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase/config";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 import "../styles/Votaciones.css";
 
 function Votaciones() {
   const [votaciones, setVotaciones] = useState([]);
   const [respuestas, setRespuestas] = useState({});
+  const [respuestasEnviadas, setRespuestasEnviadas] = useState({});
   const navigate = useNavigate();
+  const usuarioId = "ID_DEL_USUARIO"; // Sustituye por auth.currentUser.uid si estás usando autenticación
 
   const cargarVotaciones = async () => {
     const snapshot = await getDocs(collection(db, "votaciones"));
@@ -15,6 +17,18 @@ function Votaciones() {
     const data = snapshot.docs
       .map(doc => ({ id: doc.id, ...doc.data() }))
       .filter(v => v.tiempoLimite && v.tiempoLimite.toDate && v.tiempoLimite.toDate() > ahora);
+    
+    const respuestasSnapshot = await getDocs(
+      query(collection(db, "respuestasVotacion"), where("usuarioId", "==", usuarioId))
+    );
+
+    const respuestasUsuario = {};
+    respuestasSnapshot.docs.forEach(doc => {
+      const { idVotacion } = doc.data();
+      respuestasUsuario[idVotacion] = true;
+    });
+
+    setRespuestasEnviadas(respuestasUsuario);
     setVotaciones(data);
   };
 
@@ -34,8 +48,10 @@ function Votaciones() {
         idVotacion,
         respuesta,
         fecha: new Date(),
+        usuarioId,
       });
       alert("Respuesta enviada");
+      setRespuestasEnviadas(prev => ({ ...prev, [idVotacion]: true }));
     } catch (error) {
       console.error("Error al enviar respuesta: ", error);
     }
@@ -47,7 +63,7 @@ function Votaciones() {
   };
 
   const handleVolver = () => {
-    navigate("/userDashboard");
+    navigate("/usuario");
   };
 
   return (
@@ -67,13 +83,18 @@ function Votaciones() {
                   name={`votacion-${v.id}`}
                   value={op}
                   onChange={() => setRespuestas({ ...respuestas, [v.id]: op })}
+                  disabled={respuestasEnviadas[v.id]}
                 />
                 {op}
               </div>
             ))}
-            <button className="votacion-button" onClick={() => enviarRespuesta(v.id)}>
-              Enviar respuesta
-            </button>
+            {respuestasEnviadas[v.id] ? (
+              <p className="votacion-participado">Ya has participado en esta votación</p>
+            ) : (
+              <button className="votacion-button" onClick={() => enviarRespuesta(v.id)}>
+                Enviar respuesta
+              </button>
+            )}
           </div>
         ))
       )}

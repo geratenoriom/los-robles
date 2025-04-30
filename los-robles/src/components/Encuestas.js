@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, addDoc, query, where, Timestamp } from "firebase/firestore";
 import { db, auth } from "../firebase/config";
+import { onAuthStateChanged, signOut } from "firebase/auth";  // Asegúrate de importar signOut
+import { useNavigate } from "react-router-dom";
 import "../styles/Encuestas.css";
-import { onAuthStateChanged } from "firebase/auth";
 
 const Encuestas = () => {
   const [encuestas, setEncuestas] = useState([]);
   const [respuestas, setRespuestas] = useState({});
   const [userId, setUserId] = useState("");
   const [encuestasRespondidas, setEncuestasRespondidas] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const obtenerUsuario = () => {
@@ -76,6 +78,16 @@ const Encuestas = () => {
     }
   };
 
+  const handleRegresar = () => {
+    navigate("/usuario");
+  };
+
+  const handleLogout = async () => {
+    await signOut(auth);  // Cerrar sesión correctamente
+    localStorage.clear();
+    navigate("/");
+  };
+
   return (
     <div className="encuestas-container">
       <h2 className="encuestas-title">Encuestas activas</h2>
@@ -105,6 +117,16 @@ const Encuestas = () => {
           )
         ))
       )}
+
+      {/* Botones de Regresar y Cerrar sesión */}
+      <div className="admin-dashboard-actions">
+        <button className="admin-secondary-button1" onClick={handleRegresar}>
+          ← Regresar
+        </button>
+        <button className="admin-logout-button" onClick={handleLogout}>
+          Cerrar sesión
+        </button>
+      </div>
     </div>
   );
 };

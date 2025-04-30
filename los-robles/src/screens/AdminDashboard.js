@@ -1,4 +1,3 @@
-// src/screens/AdminDashboard.js
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -78,7 +77,8 @@ const AdminDashboard = () => {
         <button className="admin-secondary-button" onClick={() => navigate("/usuarios-registrados")}>Gestión de Usuarios</button>
         <button className="admin-secondary-button" onClick={() => navigate("/reportes-generados")}>Consulta de Reportes</button>
         <button className="admin-secondary-button" onClick={() => navigate("/consulta-quejas")}>Consulta de Quejas</button>
-        <button className="admin-secondary-button" onClick={() => navigate("/consulta-encuestas")}>Crear y Consultar Encuestas</button>
+        {/* Aquí está la corrección para el botón "Crear y Consultar Encuestas" */}
+        <button className="admin-secondary-button" onClick={() => navigate("/encuestas-admin")}>Crear y Consultar Encuestas</button>
         <button className="admin-secondary-button" onClick={() => navigate("/votaciones-admin")}>Crear y Consultar Votaciones</button>
         <button className="admin-logout-button" onClick={handleLogout}>Cerrar sesión</button>
       </div>

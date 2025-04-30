@@ -10,7 +10,8 @@ import Votaciones from "./components/Votaciones";
 import UsuariosRegistrados from "./screens/UsuariosRegistrados";
 import ReportesGenerados from "./components/ReportesGenerados";
 import ConsultaQuejas from "./components/ConsultaQuejas";
-import CrearConsultarVotaciones from "./components/CrearConsultarVotaciones"; // 👈 nuevo
+import CrearConsultarVotaciones from "./components/CrearConsultarVotaciones";
+import CrearConsultarEncuestas from "./components/CrearConsultarEncuestas";  // Importa el nuevo componente
 
 import './styles/Login.css';
 import './styles/UserDashboard.css';
@@ -37,7 +38,8 @@ function App() {
         <Route path="/votaciones" element={<Votaciones />} />
         <Route path="/reportes-generados" element={<ReportesGenerados />} />
         <Route path="/consulta-quejas" element={<ConsultaQuejas />} />
-        <Route path="/votaciones-admin" element={<CrearConsultarVotaciones />} /> {/* 👈 nuevo */}
+        <Route path="/votaciones-admin" element={<CrearConsultarVotaciones />} />
+        <Route path="/encuestas-admin" element={<CrearConsultarEncuestas />} />  {/* Nueva ruta para el componente */}
       </Routes>
     </Router>
   );

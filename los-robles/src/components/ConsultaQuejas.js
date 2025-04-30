@@ -1,87 +1,63 @@
-// src/components/ConsultaEncuestas.js
-import React, { useState, useEffect } from "react";
-import { db } from "../firebase/config"; // Ajusta la ruta si es diferente
-import { collection, getDocs, addDoc } from "firebase/firestore";
-import "../styles/ConsultaEncuestas.css";
+import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db, auth } from "../firebase/config";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import "../styles/ConsultaQuejas.css";
 
-const ConsultaEncuestas = () => {
-  const [pregunta, setPregunta] = useState("");
-  const [opciones, setOpciones] = useState(["", ""]);
-  const [encuestas, setEncuestas] = useState([]);
+const ConsultaQuejas = () => {
+  const [quejas, setQuejas] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const cargarEncuestas = async () => {
-      const encuestasRef = collection(db, "encuestas");
-      const snapshot = await getDocs(encuestasRef);
-      const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setEncuestas(data);
+    const fetchQuejas = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "quejas"));
+        const data = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setQuejas(data);
+      } catch (error) {
+        console.error("Error al obtener las quejas:", error.message);
+      }
     };
 
-    cargarEncuestas();
+    fetchQuejas();
   }, []);
 
-  const agregarOpcion = () => {
-    setOpciones([...opciones, ""]);
+  const handleGoBack = () => {
+    navigate(-1);
   };
 
-  const cambiarOpcion = (index, value) => {
-    const nuevasOpciones = [...opciones];
-    nuevasOpciones[index] = value;
-    setOpciones(nuevasOpciones);
-  };
-
-  const guardarEncuesta = async () => {
-    if (!pregunta.trim() || opciones.some(op => !op.trim())) {
-      alert("Completa la pregunta y todas las opciones");
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "encuestas"), {
-        pregunta,
-        opciones,
-        fechaCreacion: new Date()
-      });
-      alert("Encuesta guardada con éxito");
-      setPregunta("");
-      setOpciones(["", ""]);
-    } catch (error) {
-      console.error("Error al guardar la encuesta:", error);
-      alert("Error al guardar la encuesta");
-    }
+  const handleLogout = async () => {
+    await signOut(auth);
+    localStorage.clear();
+    navigate("/");
   };
 
   return (
-    <div className="consulta-encuestas">
-      <h3>Crear nueva encuesta</h3>
-      <input
-        type="text"
-        placeholder="Escribe la pregunta"
-        value={pregunta}
-        onChange={(e) => setPregunta(e.target.value)}
-      />
-      {opciones.map((opcion, index) => (
-        <input
-          key={index}
-          type="text"
-          placeholder={`Opción ${index + 1}`}
-          value={opcion}
-          onChange={(e) => cambiarOpcion(index, e.target.value)}
-        />
-      ))}
-      <button onClick={agregarOpcion}>Agregar opción</button>
-      <button onClick={guardarEncuesta}>Guardar encuesta</button>
-
-      <h4>Encuestas existentes</h4>
+    <div className="consulta-quejas">
+      <h3>Lista de Quejas Recibidas</h3>
       <ul>
-        {encuestas.map((encuesta) => (
-          <li key={encuesta.id}>
-            {encuesta.pregunta} ({encuesta.opciones.length} opciones)
+        {quejas.map((queja) => (
+          <li key={queja.id}>
+            <p><strong>Nombre:</strong> {queja.nombreCompleto}</p>
+            <p><strong>Calle:</strong> {queja.calle}</p>
+            <p><strong>Teléfono:</strong> {queja.telefono}</p>
+            <p><strong>Correo:</strong> {queja.correo}</p>
+            <p><strong>Descripción:</strong> {queja.descripcion}</p>
+            <hr />
           </li>
         ))}
       </ul>
+
+      <div className="consulta-quejas-buttons">
+        <button className="back-button" onClick={handleGoBack}>Regresar</button>
+        <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
+      </div>
     </div>
   );
 };
 
-export default ConsultaEncuestas;
+export default ConsultaQuejas;
