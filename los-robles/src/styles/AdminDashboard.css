@@ -1,88 +1,82 @@
-/* AdminDashboard.css */
+.admin-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
-.admin-dashboard-container1 {
-    width: 50%;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
-  }
-  
-  .admin-dashboard-title {
-    font-size: 2rem;
-  font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: rgb(5, 216, 158);
-    text-shadow:
-    -1px -1px 0 #000,  /* Sombra negra */
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000,
-    0px 0px 10px #FF0000, /* Rojo */
-    0px 0px 20px #0000FF, /* Azul */
-    0px 0px 30px #00FF00; /* Verde */
-  }
-  
-  .admin-dashboard-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0px;
-  }
-  
-  .admin-input {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    width: 95%;
-  }
-  
-  .admin-button {
-    padding: 10px;
-    background-color: rgb(122, 207, 168);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .admin-button:hover {
-    background-color: rgb(50, 151, 105);
-  }
-  
-  .admin-dashboard-actions {
-    margin-top: 20px;
-  }
-  
-  .admin-logout-button {
-    padding: 10px;
-    background-color: rgb(163, 65, 64);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .admin-logout-button:hover {
-    background-color: rgb(231, 114, 112);
-  }
-  
-  .admin-secondary-button1 {
-    padding: 10px;
-    background-color: rgb(122, 207, 168);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    margin-right: 10%;
-    
-  }
-  
-  .admin-secondary-button:hover {
-    background-color: rgb(50, 151, 105);
-  }
+.admin-dashboard-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
 
-  
+.admin-dashboard-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.admin-input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.admin-button:hover {
+  background-color: #45a049;
+}
+
+.admin-dashboard-actions {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.admin-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-menu-button {
+  padding: 12px;
+  width: 250px;
+  margin: 8px 0;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-menu-button:hover {
+  background-color: #0b7dda;
+}
+
+.admin-logout-button {
+  padding: 10px;
+  width: 250px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-logout-button:hover {
+  background-color: #e41f0f;
+}
